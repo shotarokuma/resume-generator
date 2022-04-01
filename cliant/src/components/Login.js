@@ -22,7 +22,7 @@ const Login = () => {
           marginTop:"40px"
         }}/>
       <Typography component="h2" variant="h5" textAlign="center">
-        Log in
+        Login
       </Typography>
       <form style = {{
          marginTop:"50px"
