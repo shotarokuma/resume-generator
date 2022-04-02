@@ -12,9 +12,11 @@ const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
-      <Links />
-    </AppContext.Provider>
+    <div id = "app">
+      <AppContext.Provider value={{ state, dispatch }}>
+        <Links />
+      </AppContext.Provider>
+    </div>
   );
 };
 
