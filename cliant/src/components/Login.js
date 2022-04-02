@@ -35,9 +35,6 @@ const Login = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Typography component="h1" variant="h4" textAlign="center">
-        Resume Generator
-      </Typography>
         <KeyIcon color="primary" style={{
           display: "block",
           marginLeft: "auto",

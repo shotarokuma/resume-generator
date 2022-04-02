@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AppContext from "../context";
+import Paper from '@mui/material/Paper';
+import Typography from "@mui/material/Typography";
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
@@ -8,10 +11,13 @@ import AddIcon from '@mui/icons-material/Add';
 import Header from "./Header";
 import Experience from "./Experience";
 import Education from "./Education";
+import { createDocx } from "../doc";
 
 
 const Generator = () => {
   const [type, setType] = useState(0);
+  const { state } = useContext(AppContext);
+
   return (
     <>
       <Header />
@@ -29,16 +35,18 @@ const Generator = () => {
       </div>
       <div>
         {
-          type === 0?
-          <Experience/>
-          :<Education/>
+          type === 0 ?
+            <Experience />
+            : <Education />
         }
       </div>
-      <Fab color="primary" aria-label="add" style={{
-        position: "fixed",
-        right: 20,
-        bottom: 20,
-      }}>
+      <Fab color="primary" aria-label="add"
+        onClick={() => createDocx(state.user)}
+        style={{
+          position: "fixed",
+          right: 20,
+          bottom: 20,
+        }}>
         <AddIcon />
       </Fab>
     </>
