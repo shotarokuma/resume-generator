@@ -12,7 +12,7 @@ import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { state , dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
 
   const handlLogin = (e) =>{
     e.preventDefault();

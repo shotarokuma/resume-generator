@@ -1,8 +1,12 @@
 import React from "react";
+import Header from "./Header";
+
 
 const Generator = () => {
-  return(
-    <h1>My awsome app</h1>
+  return (
+    <>
+      <Header/>
+    </>
   );
 };
 
