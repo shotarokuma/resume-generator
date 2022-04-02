@@ -30,6 +30,11 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080'
+      }
+    },
     port: 3000,
   }
 };

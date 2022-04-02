@@ -6,9 +6,25 @@ import KeyIcon from '@mui/icons-material/Key';
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from '@mui/material/Link';
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
+  const handlLogin = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.querySelector("[name='email']").value;
+    const passward = form.querySelector("[name='passward']").value;
+    axios.post('/api/v1/users/login',{
+      email:email,
+      passward:passward,
+    })
+    .then(() => {
+      // navigate("/");
+      console.log("test")
+    })
+    .catch((e) => alert(e));
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -24,7 +40,9 @@ const Login = () => {
       <Typography component="h2" variant="h5" textAlign="center">
         Login
       </Typography>
-      <form style = {{
+      <form 
+      onSubmit={handlLogin}
+      style = {{
          marginTop:"50px"
       }}>
         <TextField
@@ -46,11 +64,11 @@ const Login = () => {
           margin="normal"
           required
           fullWidth
-          name="password"
-          label="Password"
+          name="passward"
+          label="Passward"
           type="password"
-          id="password"
-          autoComplete="current-password"
+          id="passward"
+          autoComplete="current-passward"
         />
         <Button
           type="submit"

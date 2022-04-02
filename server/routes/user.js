@@ -2,11 +2,11 @@ const router = require('express').Router();
 const {
   getUser,
   postUser,
-  patchUser,
+  loginUser
 } = require('../controllers/userControllers')
 
 router.get('/:id',getUser);
 router.post('/',postUser);
-router.patch('/:id',patchUser);
+router.post('/login', loginUser);
 
 module.exports = router;

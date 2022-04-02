@@ -29,29 +29,15 @@ const getUser = (req, res) => {
     .catch(error => res.status(500).send(error));
 };
 
-const patchUser = (req, res) => {
-  User.find({ '_id': req.params.id }).exec()
+const loginUser = (req, res) => {
+  User.findOne({ 'email': req.body.email }).exec()
     .then(result => {
-      let renewUser = {
-        name: req.body.name,
-        passward: req.body.passward,
-        email: req.body.email,
-        tel: req.body.tel,
-        education: [],
-        experience: [],
-      };
-      result.data = renewUser;
-      renewUser.save()
-        .then(result => {
-          res.set('content-location', `/api/users/${req.params.id}`);
-          res.status(201).json({
-            data: renewUser,
-            url: `/api/users/${req.params.id}`
-          });
-        })
-        .catch(error => res.status(500).send(error));
+      if(result.passward === req.body.passward){
+        res.status(200).json(result);
+      }else{
+        res.status(401).send();
+      }
     })
-
     .catch(error => res.status(500).send(error));
   };
 
@@ -59,5 +45,5 @@ const patchUser = (req, res) => {
 module.exports = {
   getUser,
   postUser,
-  patchUser,
+  loginUser,
 };
