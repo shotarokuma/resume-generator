@@ -5,7 +5,7 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 import WorkIcon from '@mui/icons-material/Work';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Header from "./Header";
 import Experience from "./Experience";
 import Education from "./Education";
@@ -45,7 +45,7 @@ const Generator = () => {
           right: 20,
           bottom: 20,
         }}>
-        <AddIcon />
+        <ArrowDownwardIcon />
       </Fab>
     </>
   );
