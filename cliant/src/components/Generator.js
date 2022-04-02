@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react";
 import AppContext from "../context";
-import Paper from '@mui/material/Paper';
-import Typography from "@mui/material/Typography";
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import BorderColorIcon from '@mui/icons-material/BorderColor';

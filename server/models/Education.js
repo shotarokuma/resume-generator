@@ -8,10 +8,11 @@ const EducationSchema = new Schema({
  note:{type:String},
 })
 
-module.exports.EducationSchema = EducationSchema;
-const Education= mongoose.model('Education', EducationSchema);
+exports = module.exports = Education =  mongoose.model('Education', EducationSchema);
+module.exports = Education;
 
-// module.exports = Education;
+exports.EducationSchema = EducationSchema;
+
 
 
 
