@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LOGIN } from "../action";
+import AppContext from "../context";
 import { useNavigate } from 'react-router-dom';
 import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
@@ -10,6 +12,8 @@ import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { state , dispatch } = useContext(AppContext);
+
   const handlLogin = (e) =>{
     e.preventDefault();
     const form = e.target;
@@ -19,11 +23,14 @@ const Login = () => {
       email:email,
       passward:passward,
     })
-    .then(() => {
-      // navigate("/");
-      console.log("test")
+    .then((res) => {
+      dispatch({
+        type:LOGIN,
+        user:res.data
+      })
+      navigate("/");
     })
-    .catch((e) => alert(e));
+    .catch(() => alert("invalid email or passward"));
   };
 
   return (

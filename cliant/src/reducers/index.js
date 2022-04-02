@@ -1,9 +1,12 @@
-const reducer = (state = [], action) => {
+import { 
+  LOGIN
+ } from "../action";
+const reducer = (state,action) => {
   switch(action.type) {
-    case "LOGIN":
+    case LOGIN:
+      state.user = action.user;
+      state.auth = true;
       return state;
-    case "LOGOUT":
-      return {}
     default:
       return state;
   }
