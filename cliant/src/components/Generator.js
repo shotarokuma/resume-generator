@@ -35,7 +35,7 @@ const Generator = () => {
         }
       </div>
       <Fab color="primary" aria-label="add" style={{
-        position: "absolute",
+        position: "fixed",
         right: 20,
         bottom: 20,
       }}>
